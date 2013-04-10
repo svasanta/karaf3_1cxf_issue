@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.test.ws</groupId>
+	<artifactId>cbi-testws</artifactId>
+	<packaging>bundle</packaging>
+	<version>1.0</version>
+
+	<name>CBI Test Web Services Bundle</name>
+	<description>cbi-testws OSGi bundle project.</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>4.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-bundle-jaxrs</artifactId>
+           <version>2.6.3</version>
+        </dependency>        
+        <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-core</artifactId>
+	        <version>2.6.3</version>	    
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <version>1.0</version>
+        </dependency>        
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Version>${project.version}</Bundle-Version>
+                        <DynamicImport-Package>org.apache.cxf.jaxrs.impl;version="[2.6.3,3)", org.apache.cxf.jaxrs.utils;version="[2.6.3,3)", org.apache.cxf.jaxrs;version="[2.6.3,3)"</DynamicImport-Package>
+						<Export-Package>
+                            com.test.fine.ws=${project.version}
+						</Export-Package>
+                        <Import-Package>*</Import-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
