@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1365570946933
+Build-Jdk: 1.7.0
+Built-By: vasanta
+Bundle-Description: cbi-testws OSGi bundle project.
+Bundle-ManifestVersion: 2
+Bundle-Name: CBI Test Web Services Bundle
+Bundle-SymbolicName: cbi-testws
+Bundle-Version: 1.0
+Created-By: Apache Maven Bundle Plugin
+DynamicImport-Package: org.apache.cxf.jaxrs.impl;version="[2.6.3,3)", or
+ g.apache.cxf.jaxrs.utils;version="[2.6.3,3)", org.apache.cxf.jaxrs;vers
+ ion="[2.6.3,3)"
+Import-Package: javax.ws.rs;version="[1.1,2)",org.osgi.service.blueprint
+ ;version="[1.0.0,2.0.0)"
+Tool: Bnd-1.50.0
